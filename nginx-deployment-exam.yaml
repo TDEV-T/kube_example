@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment #resource type
+metadata:
+  name: nginx-deployment #name rep set
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: nginx #label pod for repset
+  template:
+    metadata:
+      name: nginx-server
+      labels:
+        app: nginx # label of pod 
+    spec:
+      containers:
+      - name: nginx #name of container 
+        image: nginx  #image name 
+        ports:
+        - containerPort: 80 # port of container

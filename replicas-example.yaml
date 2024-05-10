@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet # type of resource
+metadata:
+  name: first-rs # name of rep set
+  labels:
+    app: first-rs # name of label repset
+spec:
+  replicas: 2 #count of pod 
+  selector:
+    matchLabels:
+      app: first-rs-pod #label of pod for respset
+  template:
+      metadata:
+        labels:
+          app: first-rs-pod # label of pod
+      spec: 
+        containers:
+        - name: nginx #name of container 
+          image: nginx 
+          ports:
+          - containerPort: 80 #port of container 
+        
+

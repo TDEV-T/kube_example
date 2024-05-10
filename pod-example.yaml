@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod # type of resource
+metadata:
+  labels: # labels for sigh pod to cluster 
+    app: first-pod
+  name: first-pod
+spec:
+  containers:
+    - image: nginx
+      name: first-pod #name of container in pod 
+      ports:
+      - containerPort: 80 #Port container 
